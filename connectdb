@@ -1,0 +1,21 @@
+import pymongo 
+from pymongo import MongoClient 
+
+
+
+## mongodb+srv://db01:<password>@cluster0-q8a6f.mongodb.net/test?retryWrites=true&w=majority
+
+
+MONGO_URI = 'mongodb+srv://admin:<12345>@nicolast-fqfxo.gcp.mongodb.net/test?retryWrites=true&w=majority'
+cluster = MongoClient(MONGO_URI)
+
+db = cluster["ShopOnine"]
+collection = db["NhanVien"]
+
+#obj_post = { "_id" : 0, "username" : "nntu", "Fullname" : "Nguyen Ngoc Tu"}
+# collection.insert_one(obj_post)
+
+results = collection.find({})
+
+for item in results:
+    print(item)
